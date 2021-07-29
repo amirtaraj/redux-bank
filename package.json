@@ -4,9 +4,11 @@
   "author": "William Horton",
   "license": "MIT",
   "scripts": {
+    "install:all": "npm install && cd mock-server && npm install",
+    "test": "cd redux-bank && npm-run-all -p -r start start:mock test:all",
     "start": "node server.js",
     "build": "webpack --config ./webpack.production.config.js --progress --colors",
-    "test": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register",
+    "test:original": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register",
     "test:watch": "npm test -- --watch",
     "container:build": "docker build -t react-docker .",
     "container:start": "docker run --name react-docker -p 80:8088 react-docker",
