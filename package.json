@@ -6,7 +6,8 @@
   "scripts": {
     "install:all": "npm install && cd mock-server && npm install",
     "test": "cd redux-bank && npm-run-all -p -r start start:mock test:all",
-    "start": "node server.js",
+    "start": "node server.js && cd mock-server && npm start",
+    "start:mock": "cd mock-server && npm start",
     "build": "webpack --config ./webpack.production.config.js --progress --colors",
     "test:original": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register",
     "test:watch": "npm test -- --watch",
@@ -15,6 +16,7 @@
     "container:stop": "docker stop react-docker && docker rm react-docker"
   },
   "dependencies": {
+    "all": "0.0.0",
     "axios": "^0.16.2",
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
